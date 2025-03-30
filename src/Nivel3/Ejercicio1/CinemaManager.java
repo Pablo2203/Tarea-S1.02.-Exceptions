@@ -45,12 +45,17 @@ public class CinemaManager {
         String name = introduceCustomerName();
         SeatManager seatManager = this.cinema.getSeatManager();
         ArrayList<Seat> seats = seatManager.getSeats();
+        boolean reservationFound = false;
+
         for (Seat seat : seats) {
             if (seat.getCustomerName().equalsIgnoreCase(name)) {
                 System.out.println(seat.toString());
-            }else {
-                System.out.println("No reservations found for: " + name);
+                reservationFound = true;
             }
+        }
+
+        if (!reservationFound) {
+            System.out.println("No reservations found for: " + name);
         }
     }
 
