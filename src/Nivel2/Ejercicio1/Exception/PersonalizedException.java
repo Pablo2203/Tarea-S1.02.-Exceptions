@@ -1,4 +1,4 @@
-package Nivel2.Ejercicio1;
+package Nivel2.Ejercicio1.Exception;
 
 public class PersonalizedException extends Exception{
 

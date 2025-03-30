@@ -1,7 +1,7 @@
 package Nivel2.Ejercicio1.Main;
 
 import Nivel2.Ejercicio1.Entrance;
-import Nivel2.Ejercicio1.PersonalizedException;
+import Nivel2.Ejercicio1.Exception.PersonalizedException;
 
 public class Main {
     public static void main(String[] args) throws PersonalizedException {

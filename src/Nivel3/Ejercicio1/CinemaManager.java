@@ -1,6 +1,10 @@
 package Nivel3.Ejercicio1;
 
 
+import Nivel3.Ejercicio1.Exceptions.IncorrectCostumerNameExeception;
+import Nivel3.Ejercicio1.Exceptions.IncorrectRowException;
+import Nivel3.Ejercicio1.Exceptions.IncorrectSeatException;
+
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -80,7 +84,7 @@ public class CinemaManager {
         while (iterator.hasNext()) {
             Seat seat = iterator.next();
             if (seat.getRowNumber() == row && seat.getSeatNumber() == seatNumber) {
-                iterator.remove();  // Eliminar a través del iterador
+                iterator.remove();
                 System.out.println("The seat has been removed successfully! " + seat.toString());
                 seatRemoved = true;
             }
@@ -90,14 +94,6 @@ public class CinemaManager {
             System.out.println("The specified seat does not exist or is not reserved.");
         }
     }
-
-
-//"anularReserva": Pide al usuario un número de fila (llamada al método "introducirFila"), un número de asiento (llamada
-// al método "introducirAsiento") y elimina la reserva del sillón.
-//
-//"anularReservaPersona": Pide al usuario el nombre de la persona (llamada al método "introducirPersona") y elimina las
-// butacas reservadas por la persona introducida.
-
 
     public void cancelAllBooking() {
         String name = introduceCustomerName();
@@ -119,8 +115,6 @@ public class CinemaManager {
         }
     }
 
-    //"introducirPersona": Pide al usuario el nombre de la persona y lo devuelve si es correcto. Si contiene números, lanza una
-// excepción personalizada "ExcepcionNomPersonaIncorrecte"
     public String introduceCustomerName() {
         String name = "";
         boolean validFormat = false;
@@ -141,8 +135,6 @@ public class CinemaManager {
         return name;
     }
 
-    //"introducirFila": Pide el número de fila, si éste está entre 1 y el número de filas totales, lo devuelve. Si no, lanza
-// una excepción personalizada "ExcepcioFilaIncorrecta"
 
     public int introduceRow() {
         int row = 0;
@@ -192,44 +184,3 @@ public class CinemaManager {
 
 
 }
-
-
-
-//Clase GestioCine:
-//
-//Contendrá la lógica para la gestión de las operaciones del cine.
-//
-//Atributos:
-//
-//Un objeto de la clase "Cine"
-//
-//Métodos:
-//
-//"Constructor": Recibirá como parámetro un objeto de la clase "Cine" y lo asignará al atributo correspondiente.
-//
-//"menu": Mostrará las opciones del menú principal al usuario, le pedirá el número de la opción escogida y lo devolverá.
-//
-//"mostrarButacas": Muestra todas las butacas reservadas.
-//
-//"mostrarButacasPersona": Pide el nombre de la persona que ha hecho la reserva y muestra todas las butacas reservadas
-// por esa persona
-//
-//"reservarButaca": Pide al usuario un número de fila (llamada al método "introducirFila"), un número de asiento
-// (llamada al método "introducirAsiento"), el nombre de la persona que hace la reserva (llama al método "introducirPersona")
-//  y reserva el sillón.
-//
-//"anularReserva": Pide al usuario un número de fila (llamada al método "introducirFila"), un número de asiento (llamada
-// al método "introducirAsiento") y elimina la reserva del sillón.
-//
-//"anularReservaPersona": Pide al usuario el nombre de la persona (llamada al método "introducirPersona") y elimina las
-// butacas reservadas por la persona introducida.
-//
-//"introducirPersona": Pide al usuario el nombre de la persona y lo devuelve si es correcto. Si contiene números, lanza una
-// excepción personalizada "ExcepcionNomPersonaIncorrecte"
-//
-//"introducirFila": Pide el número de fila, si éste está entre 1 y el número de filas totales, lo devuelve. Si no, lanza
-// una excepción personalizada "ExcepcioFilaIncorrecta"
-//
-//"introducirAsiento": Pide el asiento, si el número está entre 1 y el número total de asientos, lo devuelve. Si no, lanza
-// una excepción personalizada "ExcepcioSeientIncorrecte"
-//

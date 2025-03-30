@@ -1,5 +1,7 @@
 package Nivel2.Ejercicio1;
 
+import Nivel2.Ejercicio1.Exception.PersonalizedException;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 

@@ -81,25 +81,3 @@ public class Cinema {
 
         }
 
-//Clase Cine
-//
-//Contendrá los atributos y el método de inicialización.
-//
-//Atributos:
-//
-//Número de filas del cine.
-//
-//Número de asientos por cada fila.
-//
-//Un objeto de la clase "GestioButaques"
-//
-//Un objeto de la clase "GestioCine"
-//Métodos:
-//
-//Constructor: no recibirá parámetros. Inicializará el objeto de la clase "GestioButaques" y "GestioCine".
-// Llamará al método "pedir Datos Iniciales" que inicializará el número de filas y de asientos.
-//
-//iniciar: empezará la aplicación. Llamará al método "menu" y en función del número devuelto, llamará al
-// método correspondiente de la clase "GestioCine".
-//
-//"pedirDatosIniciales": Pedirá al usuario el número de filas y asientos y los guardará en los atributos correspondientes
