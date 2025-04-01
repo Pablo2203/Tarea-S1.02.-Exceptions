@@ -1,4 +1,4 @@
-package Nivel3.Ejercicio1.Exceptions;
+package Nivel3.Ejercicio1.exceptions;
 
 public class IncorrectRowException extends Exception{
     public IncorrectRowException() {

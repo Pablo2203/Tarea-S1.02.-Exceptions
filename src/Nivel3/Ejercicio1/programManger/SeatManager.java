@@ -1,9 +1,9 @@
-package Nivel3.Ejercicio1;
+package Nivel3.Ejercicio1.programManger;
+
+import Nivel3.Ejercicio1.model.Seat;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
-import static Nivel2.Ejercicio1.Entrance.scanner;
 
 
 public class SeatManager {
@@ -17,10 +17,7 @@ public class SeatManager {
  public ArrayList<Seat> getSeats(){
         return seats;
     }
-    //"añadirButaca": será el encargado de añadir una butaca al ArrayList de butacas. Recibirá como parámetro un objeto de la
-// clase "Butaca" y lo añadirá a ArrayList. Si la fila y el asiento de la butaca recibida como parámetro coinciden con el
-// de una butaca que ya se encuentre en ArrayList (se utilizará el método "buscarButaca"), se lanzará la excepción personalizada
-//  "ExcepcioButacaOcupada".
+
     public void addSeat(Seat seat) {
         if (searchSeat(seat.getRowNumber(), seat.getSeatNumber()) != -1) {
             System.out.println("The seat is already booked.");
@@ -42,13 +39,16 @@ public class SeatManager {
 
 
     public int searchSeat(int rowNumber, int seatNumber) {
+        int result = -1;
         for (int i = 0; i < seats.size(); i++) {
             if (seats.get(i).getRowNumber() == rowNumber && seats.get(i).getSeatNumber() == seatNumber) {
-                return i;
+                result = i;
+                break;
             }
         }
-        return -1;
+        return result;
     }
+
 
 
 }

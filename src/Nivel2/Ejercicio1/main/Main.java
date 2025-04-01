@@ -1,13 +1,13 @@
-package Nivel2.Ejercicio1.Main;
+package Nivel2.Ejercicio1.main;
 
-import Nivel2.Ejercicio1.Entrance;
-import Nivel2.Ejercicio1.Exception.PersonalizedException;
+import Nivel2.Ejercicio1.model.Entrance;
+import Nivel2.Ejercicio1.exception.PersonalizedException;
 
 public class Main {
     public static void main(String[] args) throws PersonalizedException {
     Entrance entrance = new Entrance();
 
-            byte valueInByte = entrance.readByte("Introduce your birthday (Only the DD)");
+        byte valueInByte = entrance.readByte("Introduce your birthday (Only the DD)");
         System.out.println(valueInByte);
 
         int valueInInt = entrance.readInt("Introduce your age");
@@ -16,7 +16,8 @@ public class Main {
         float valueInFloat = entrance.readFloat("Introduce your weight");
         System.out.println(valueInFloat);
 
-        double valueInDouble = entrance.readDouble("Introduce your height in centimeters");
+        double valueInDouble = entrance.readDouble("Introduce your height ");
+        System.out.println(valueInDouble);
 
         char valueInChar = entrance.readChar("Introduce your name's initial");
         System.out.println(valueInChar);

@@ -1,6 +1,6 @@
-package Nivel1.Ejercicio1;
+package Nivel1.Ejercicio1.model;
 
-import Nivel1.Ejercicio1.Exception.EmptySaleException;
+import Nivel1.Ejercicio1.exception.EmptySaleException;
 
 import java.util.ArrayList;
 

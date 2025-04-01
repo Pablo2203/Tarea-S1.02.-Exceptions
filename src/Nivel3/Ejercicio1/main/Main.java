@@ -1,6 +1,6 @@
-package Nivel3.Ejercicio1.Main;
+package Nivel3.Ejercicio1.main;
 
-import Nivel3.Ejercicio1.Cinema;
+import Nivel3.Ejercicio1.model.Cinema;
 
 public class Main {
     public static void main(String[] args) {

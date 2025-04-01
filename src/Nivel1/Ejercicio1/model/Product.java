@@ -1,4 +1,4 @@
-package Nivel1.Ejercicio1;
+package Nivel1.Ejercicio1.model;
 
 public class Product {
     private String name;

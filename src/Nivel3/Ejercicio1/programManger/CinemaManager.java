@@ -1,21 +1,22 @@
-package Nivel3.Ejercicio1;
+package Nivel3.Ejercicio1.programManger;
 
-
-import Nivel3.Ejercicio1.Exceptions.IncorrectCostumerNameExeception;
-import Nivel3.Ejercicio1.Exceptions.IncorrectRowException;
-import Nivel3.Ejercicio1.Exceptions.IncorrectSeatException;
+import Nivel3.Ejercicio1.exceptions.IncorrectCostumerNameExeception;
+import Nivel3.Ejercicio1.exceptions.IncorrectRowException;
+import Nivel3.Ejercicio1.exceptions.IncorrectSeatException;
+import Nivel3.Ejercicio1.model.Cinema;
+import Nivel3.Ejercicio1.model.Seat;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
 public class CinemaManager {
     private Cinema cinema;
+    private Scanner scanner = new Scanner(System.in);
 
     public CinemaManager(Cinema cinema) {
         this.cinema = cinema;
     }
-
-    Scanner scanner = new Scanner(System.in);
 
     public void menu() {
         System.out.println("Welcome to the cinema manager! Please select an option with the number:");
@@ -29,7 +30,7 @@ public class CinemaManager {
     }
 
     public void showOcupiedSeats() {
-        SeatManager seatManager = this.cinema.getSeatManager();
+        SeatManager seatManager = cinema.getSeatManager();
         ArrayList<Seat> seats = seatManager.getSeats();
         if (seats.isEmpty()) {
             System.out.println("No seats are currently booked.");
@@ -40,10 +41,9 @@ public class CinemaManager {
         }
     }
 
-
     public void showBookedSeats() {
         String name = introduceCustomerName();
-        SeatManager seatManager = this.cinema.getSeatManager();
+        SeatManager seatManager = cinema.getSeatManager();
         ArrayList<Seat> seats = seatManager.getSeats();
         boolean reservationFound = false;
 
@@ -63,13 +63,13 @@ public class CinemaManager {
         int row = introduceRow();
         int seatNumber = introduceSeat();
         String customerName = introduceCustomerName();
-        SeatManager seatManager = this.cinema.getSeatManager();
+        SeatManager seatManager = cinema.getSeatManager();
         ArrayList<Seat> seats = seatManager.getSeats();
 
         for (Seat seat : seats) {
             if (seat.getRowNumber() == row && seat.getSeatNumber() == seatNumber) {
                 System.out.println("This seat is already taken.");
-                return; // Sale del método sin reservar el asiento
+                return;
             }
         }
 
@@ -77,13 +77,12 @@ public class CinemaManager {
         seatManager.addSeat(newSeat);
     }
 
-
     public void cancelSeatBooking() {
         int row = introduceRow();
         int seatNumber = introduceSeat();
         boolean seatRemoved = false;
 
-        SeatManager seatManager = this.cinema.getSeatManager();
+        SeatManager seatManager = cinema.getSeatManager();
         ArrayList<Seat> seats = seatManager.getSeats();
         var iterator = seats.iterator();
         while (iterator.hasNext()) {
@@ -102,7 +101,7 @@ public class CinemaManager {
 
     public void cancelAllBooking() {
         String name = introduceCustomerName();
-        SeatManager seatManager = this.cinema.getSeatManager();
+        SeatManager seatManager = cinema.getSeatManager();
         ArrayList<Seat> seats = seatManager.getSeats();
 
         boolean found = false;
@@ -110,7 +109,7 @@ public class CinemaManager {
         while (iterator.hasNext()) {
             Seat seat = iterator.next();
             if (seat.getCustomerName().equals(name)) {
-                iterator.remove();  // Eliminar a través del iterador
+                iterator.remove();
                 System.out.println("Removed seat: " + seat);
                 found = true;
             }
@@ -121,62 +120,48 @@ public class CinemaManager {
     }
 
     public String introduceCustomerName() {
-        String name = "";
-        boolean validFormat = false;
-
-        while (!validFormat) {
+        while (true) {
             try {
                 System.out.println("Please introduce the name of the customer:");
-                name = scanner.nextLine();
-                if (name.matches(".*\\d.*") ||name.isEmpty()) {
+                String name = scanner.nextLine();
+                if (name.matches(".*\\d.*") || name.isEmpty()) {
                     throw new IncorrectCostumerNameExeception();
                 }
-                validFormat = true;
-
+                return name;
             } catch (IncorrectCostumerNameExeception e) {
                 System.out.println(e.getMessage());
             }
         }
-        return name;
     }
 
-
     public int introduceRow() {
-        int row = 0;
-        boolean validFormat = false;
-
-        while (!validFormat) {
+        while (true) {
             try {
                 System.out.println("Please introduce the row number:");
-                row = scanner.nextInt();
+                int row = scanner.nextInt();
                 if (row < 1 || row > cinema.getNumberOfRows()) {
                     throw new IncorrectRowException();
                 }
-                validFormat = true;
+                return row;
             } catch (InputMismatchException e) {
                 System.out.println("Invalid input. Please enter a number.");
-                scanner.next(); // Limpiar scanner para evitar bucle infinito
+                scanner.next();
             } catch (IncorrectRowException e) {
                 System.out.println(e.getMessage());
             }
         }
-        return row;
     }
 
-
     public int introduceSeat() {
-        int seatNumber = 0;
-        boolean validFormat = false;
-
-        while (!validFormat) {
+        while (true) {
             try {
                 System.out.println("Please introduce your seat number: ");
-                seatNumber = scanner.nextInt();
+                int seatNumber = scanner.nextInt();
                 scanner.nextLine();
                 if (seatNumber < 1 || seatNumber > cinema.getNumberOfSeatsPerRow()) {
                     throw new IncorrectSeatException();
                 }
-                validFormat = true;
+                return seatNumber;
             } catch (InputMismatchException e) {
                 System.out.println("Invalid input. Please enter a valid number.");
                 scanner.next();
@@ -184,8 +169,5 @@ public class CinemaManager {
                 System.out.println(e.getMessage());
             }
         }
-        return seatNumber;
     }
-
-
 }

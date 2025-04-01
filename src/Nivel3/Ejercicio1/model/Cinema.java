@@ -1,4 +1,7 @@
-package Nivel3.Ejercicio1;
+package Nivel3.Ejercicio1.model;
+
+import Nivel3.Ejercicio1.programManger.CinemaManager;
+import Nivel3.Ejercicio1.programManger.SeatManager;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -54,9 +57,6 @@ public class Cinema {
 
         }  while (option != 0) ;
     }
-            //iniciar: empezará la aplicación. Llamará al método "menu" y en función del número devuelto, llamará al
-// método correspondiente de la clase "GestioCine".
-
 
             public void askInitialData() {
                 Scanner scanner = new Scanner(System.in);

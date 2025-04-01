@@ -1,4 +1,4 @@
-package Nivel3.Ejercicio1;
+package Nivel3.Ejercicio1.model;
 
 public class Seat {
     private int rowNumber;
@@ -35,25 +35,3 @@ public class Seat {
                 ", Customer´s name: '" + customerName + '\'';
     }
 }
-
-//Clase Butaca
-//
-//Tendrá los datos de un sillón:
-//
-//Atributos:
-//
-//Número de fila.
-//
-//Número de asiento.
-//
-//Persona que reserva el sillón.
-//
-//Métodos:
-//
-//Constructor con todos sus parámetros.
-//
-//Getters por todos los atributos.
-//
-//Equals: devolverá que dos butacas son iguales si la fila y el asiento son iguales.
-//
-//toString: devolverá un String con el siguiente formato: “Fila: 5, Asiento: 20, Persona: Maria Febrer”

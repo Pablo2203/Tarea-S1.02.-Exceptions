@@ -1,8 +1,8 @@
-package Nivel1.Ejercicio1.Main;
+package Nivel1.Ejercicio1.main;
 
-import Nivel1.Ejercicio1.Exception.EmptySaleException;
-import Nivel1.Ejercicio1.Product;
-import Nivel1.Ejercicio1.Sale;
+import Nivel1.Ejercicio1.exception.EmptySaleException;
+import Nivel1.Ejercicio1.model.Product;
+import Nivel1.Ejercicio1.model.Sale;
 
 public class Main {
     public static void main(String[] args) {
