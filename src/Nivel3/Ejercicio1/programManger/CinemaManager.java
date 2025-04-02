@@ -119,55 +119,55 @@ public class CinemaManager {
         }
     }
 
-    public String introduceCustomerName() {
-        while (true) {
-            try {
-                System.out.println("Please introduce the name of the customer:");
-                String name = scanner.nextLine();
-                if (name.matches(".*\\d.*") || name.isEmpty()) {
-                    throw new IncorrectCostumerNameExeception();
+        public String introduceCustomerName() {
+            while (true) {
+                try {
+                    System.out.println("Please introduce the name of the customer:");
+                    String name = scanner.nextLine();
+                    if (name.matches(".*\\d.*") || name.isEmpty()) {
+                        throw new IncorrectCostumerNameExeception();
+                    }
+                    return name;
+                } catch (IncorrectCostumerNameExeception e) {
+                    System.out.println(e.getMessage());
                 }
-                return name;
-            } catch (IncorrectCostumerNameExeception e) {
-                System.out.println(e.getMessage());
             }
         }
-    }
 
-    public int introduceRow() {
-        while (true) {
-            try {
-                System.out.println("Please introduce the row number:");
-                int row = scanner.nextInt();
-                if (row < 1 || row > cinema.getNumberOfRows()) {
-                    throw new IncorrectRowException();
+        public int introduceRow() {
+            while (true) {
+                try {
+                    System.out.println("Please introduce the row number:");
+                    int row = scanner.nextInt();
+                    if (row < 1 || row > cinema.getNumberOfRows()) {
+                        throw new IncorrectRowException();
+                    }
+                    return row;
+                } catch (InputMismatchException e) {
+                    System.out.println("Invalid input. Please enter a number.");
+                    scanner.next();
+                } catch (IncorrectRowException e) {
+                    System.out.println(e.getMessage());
                 }
-                return row;
-            } catch (InputMismatchException e) {
-                System.out.println("Invalid input. Please enter a number.");
-                scanner.next();
-            } catch (IncorrectRowException e) {
-                System.out.println(e.getMessage());
             }
         }
-    }
 
-    public int introduceSeat() {
-        while (true) {
-            try {
-                System.out.println("Please introduce your seat number: ");
-                int seatNumber = scanner.nextInt();
-                scanner.nextLine();
-                if (seatNumber < 1 || seatNumber > cinema.getNumberOfSeatsPerRow()) {
-                    throw new IncorrectSeatException();
+        public int introduceSeat() {
+            while (true) {
+                try {
+                    System.out.println("Please introduce your seat number: ");
+                    int seatNumber = scanner.nextInt();
+                    scanner.nextLine();
+                    if (seatNumber < 1 || seatNumber > cinema.getNumberOfSeatsPerRow()) {
+                        throw new IncorrectSeatException();
+                    }
+                    return seatNumber;
+                } catch (InputMismatchException e) {
+                    System.out.println("Invalid input. Please enter a valid number.");
+                    scanner.next();
+                } catch (IncorrectSeatException e) {
+                    System.out.println(e.getMessage());
                 }
-                return seatNumber;
-            } catch (InputMismatchException e) {
-                System.out.println("Invalid input. Please enter a valid number.");
-                scanner.next();
-            } catch (IncorrectSeatException e) {
-                System.out.println(e.getMessage());
             }
         }
-    }
 }
