@@ -10,9 +10,9 @@ public class SeatManager {
  private ArrayList<Seat> seats;
 
  public SeatManager() {
+
      seats = new ArrayList<>();
  }
-    Scanner scanner = new Scanner(System.in);
 
  public ArrayList<Seat> getSeats(){
         return seats;
