@@ -18,14 +18,13 @@ public class Sale {
     public ArrayList<Product> getProducts() {
         return products;
     }
-    public void calculateTotal () throws EmptySaleException {
-        double total = 0;
+    public void calculateTotal() throws EmptySaleException {
         if (products.isEmpty()) {
             throw new EmptySaleException();
-        }else if (!products.isEmpty()) {
+        } else {
+            total = 0;
             for (Product product : products) {
-               total += product.getPrice();
-
+                total += product.getPrice();
             }
             System.out.println("Total amount: " + total);
         }

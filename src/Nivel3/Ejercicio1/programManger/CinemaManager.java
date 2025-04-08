@@ -1,8 +1,6 @@
 package Nivel3.Ejercicio1.programManger;
 
 import Nivel3.Ejercicio1.exceptions.IncorrectCostumerNameExeception;
-import Nivel3.Ejercicio1.exceptions.IncorrectRowException;
-import Nivel3.Ejercicio1.exceptions.IncorrectSeatException;
 import Nivel3.Ejercicio1.model.Cinema;
 import Nivel3.Ejercicio1.model.Seat;
 
@@ -134,40 +132,38 @@ public class CinemaManager {
             }
         }
 
-        public int introduceRow() {
-            while (true) {
-                try {
-                    System.out.println("Please introduce the row number:");
-                    int row = scanner.nextInt();
-                    if (row < 1 || row > cinema.getNumberOfRows()) {
-                        throw new IncorrectRowException();
-                    }
+    public int introduceRow() {
+        while (true) {
+            try {
+                System.out.println("Please introduce the row number:");
+                int row = scanner.nextInt();
+                if (row < 1 || row > cinema.getNumberOfRows()) {
+                    System.out.println("The row number must be between 1 and " + cinema.getNumberOfRows() + ".");
+                    continue;
+                }
                     return row;
-                } catch (InputMismatchException e) {
+                } catch(InputMismatchException e){
                     System.out.println("Invalid input. Please enter a number.");
                     scanner.next();
-                } catch (IncorrectRowException e) {
-                    System.out.println(e.getMessage());
                 }
-            }
-        }
 
-        public int introduceSeat() {
-            while (true) {
-                try {
-                    System.out.println("Please introduce your seat number: ");
-                    int seatNumber = scanner.nextInt();
-                    scanner.nextLine();
-                    if (seatNumber < 1 || seatNumber > cinema.getNumberOfSeatsPerRow()) {
-                        throw new IncorrectSeatException();
-                    }
+        }
+    }
+
+    public int introduceSeat() {
+        while (true) {
+            System.out.println("Please introduce your seat number: ");
+            if (scanner.hasNextInt()) {
+                int seatNumber = scanner.nextInt();
+                if (seatNumber >= 1 && seatNumber <= cinema.getNumberOfSeatsPerRow()) {
                     return seatNumber;
-                } catch (InputMismatchException e) {
-                    System.out.println("Invalid input. Please enter a valid number.");
-                    scanner.next();
-                } catch (IncorrectSeatException e) {
-                    System.out.println(e.getMessage());
+                } else {
+                    System.out.println("Invalid seat number. Please enter a value between 1 and " + cinema.getNumberOfSeatsPerRow() + ".");
                 }
+            } else {
+                System.out.println("Invalid input. Please enter a valid number.");
+                scanner.next();
             }
         }
+    }
 }

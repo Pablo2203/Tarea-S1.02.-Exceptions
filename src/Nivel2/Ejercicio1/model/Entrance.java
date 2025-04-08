@@ -21,7 +21,7 @@ public class Entrance {
                 }
                 return birthday;
             } catch (InputMismatchException e) {
-                System.out.println("Wrong format. Please enter a number without decimals between 1 and 31.");
+                System.out.println("Wrong format or invalid answer. Format accepted: Byte. Please enter a number without decimals between 1 and 31.");
                 scanner.nextLine();
             }
         }
@@ -37,7 +37,7 @@ public class Entrance {
                 }
                 return age;
             } catch (InputMismatchException e) {
-                System.out.println("Wrong format. Please introduce a positive number.");
+                System.out.println("Wrong format or invalid answer. Format accepted Integer. Please introduce a positive number.");
                 scanner.nextLine();
             }
         }
@@ -53,7 +53,7 @@ public class Entrance {
                 }
                 return weight;
             } catch (InputMismatchException e) {
-                System.out.println("Wrong format. Please introduce a positive number. For decimal numbers, use a comma.");
+                System.out.println("Wrong format or invalid answer. Format accepted Float. Please introduce a positive number. For decimal numbers, use a comma.");
                 scanner.nextLine();
             }
         }
@@ -69,7 +69,7 @@ public class Entrance {
                 }
                 return height;
             } catch (InputMismatchException e) {
-                System.out.println("Wrong format. Please introduce a positive number. For decimal numbers, use a comma.");
+                System.out.println("Wrong format or invalid answer. Format accepted Double. Please introduce a positive number. For decimal numbers, use a comma.");
                 scanner.nextLine();
             }
         }
@@ -86,7 +86,7 @@ public class Entrance {
                 }
                 return inputChar;
             } catch (PersonalizedException e) {
-                System.out.println("Wrong format. Please introduce a single alphabetic character.");
+                System.out.println("Wrong format or invalid answer. Format accepted Char. Please introduce a single alphabetic character.");
             }
         }
     }
@@ -101,7 +101,7 @@ public class Entrance {
                 }
                 return input;
             } catch (PersonalizedException e) {
-                System.out.println("Wrong format. Please introduce alphabetic characters only.");
+                System.out.println("Wrong format or invalid answer. Please introduce alphabetic characters only.");
             }
         }
     }
@@ -119,7 +119,7 @@ public class Entrance {
                     throw new PersonalizedException();
                 }
             } catch (PersonalizedException e) {
-                System.out.println("Wrong format. Please introduce 'Y' or 'N'.");
+                System.out.println("Wrong format or invalid answer. Please introduce 'Y' or 'N'.");
             }
         }
     }

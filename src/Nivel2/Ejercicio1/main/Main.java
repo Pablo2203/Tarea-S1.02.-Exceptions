@@ -4,7 +4,7 @@ import Nivel2.Ejercicio1.model.Entrance;
 import Nivel2.Ejercicio1.exception.PersonalizedException;
 
 public class Main {
-    public static void main(String[] args) throws PersonalizedException {
+    public static void main(String[] args) {
     Entrance entrance = new Entrance();
 
         byte valueInByte = entrance.readByte("Introduce your birthday (Only the DD)");
